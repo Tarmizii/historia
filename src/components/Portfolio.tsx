@@ -1,12 +1,13 @@
 
 import { useState } from "react";
-import { Camera, Users, Calendar, ExternalLink } from "lucide-react";
+import { Camera, Users, Calendar, ExternalLink, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Portfolio = () => {
   const { toast } = useToast();
   const [visibleItems, setVisibleItems] = useState(6);
   const [activeCategory, setActiveCategory] = useState("all");
+  const [selectedItem, setSelectedItem] = useState<null | typeof portfolioItems[0]>(null);
 
   const portfolioItems = [
     {
@@ -16,7 +17,13 @@ const Portfolio = () => {
       event: "Wedding Day",
       category: "wedding",
       location: "Jogja",
-      date: "12 Juni 2023"
+      date: "12 Juni 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
+        "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070",
+        "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974",
+        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070"
+      ]
     },
     {
       id: 2,
@@ -25,7 +32,13 @@ const Portfolio = () => {
       event: "Prewedding",
       category: "prewedding",
       location: "Bali",
-      date: "5 Mei 2023"
+      date: "5 Mei 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070",
+        "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
+        "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070"
+      ]
     },
     {
       id: 3,
@@ -34,7 +47,13 @@ const Portfolio = () => {
       event: "Engagement",
       category: "engagement",
       location: "Jakarta",
-      date: "20 April 2023"
+      date: "20 April 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1594106345865-e7d16b880857?q=80&w=2070",
+        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070",
+        "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925"
+      ]
     },
     {
       id: 4,
@@ -43,7 +62,13 @@ const Portfolio = () => {
       event: "Wedding Day",
       category: "wedding",
       location: "Surabaya",
-      date: "7 Juli 2023"
+      date: "7 Juli 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974",
+        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070",
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
+        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134"
+      ]
     },
     {
       id: 5,
@@ -52,7 +77,13 @@ const Portfolio = () => {
       event: "Prewedding",
       category: "prewedding",
       location: "Bandung",
-      date: "15 Agustus 2023"
+      date: "15 Agustus 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070",
+        "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
+        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
+        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070"
+      ]
     },
     {
       id: 6,
@@ -61,7 +92,13 @@ const Portfolio = () => {
       event: "Engagement",
       category: "engagement",
       location: "Semarang",
-      date: "3 September 2023"
+      date: "3 September 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134",
+        "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974",
+        "https://images.unsplash.com/photo-1594106345865-e7d16b880857?q=80&w=2070",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070"
+      ]
     },
     {
       id: 7,
@@ -70,7 +107,13 @@ const Portfolio = () => {
       event: "Wedding Day",
       category: "wedding",
       location: "Yogyakarta",
-      date: "11 Oktober 2023"
+      date: "11 Oktober 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
+        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134",
+        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
+        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070"
+      ]
     },
     {
       id: 8,
@@ -79,7 +122,13 @@ const Portfolio = () => {
       event: "Prewedding",
       category: "prewedding",
       location: "Solo",
-      date: "25 November 2023"
+      date: "25 November 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
+        "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070",
+        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
+        "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070"
+      ]
     },
     {
       id: 9,
@@ -88,7 +137,13 @@ const Portfolio = () => {
       event: "Engagement",
       category: "engagement",
       location: "Malang",
-      date: "8 Desember 2023"
+      date: "8 Desember 2023",
+      galleryImages: [
+        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070",
+        "https://images.unsplash.com/photo-1594106345865-e7d16b880857?q=80&w=2070",
+        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134",
+        "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974"
+      ]
     }
   ];
 
@@ -114,6 +169,14 @@ const Portfolio = () => {
     const message = `Halo Hiistoria.id, saya tertarik dengan paket ${eventType} setelah melihat portofolio ${clientName}. Bisakah saya mendapatkan informasi lebih lanjut?`;
     const whatsappLink = `https://wa.me/6282341491347?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, '_blank');
+  };
+
+  const openPortfolioDetail = (item: typeof portfolioItems[0]) => {
+    setSelectedItem(item);
+  };
+
+  const closePortfolioDetail = () => {
+    setSelectedItem(null);
   };
 
   return (
@@ -172,7 +235,11 @@ const Portfolio = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-section">
           {filteredItems.slice(0, visibleItems).map((item) => (
-            <div key={item.id} className="group relative overflow-hidden rounded-lg glass-card border border-hiistoria-gold/20">
+            <div 
+              key={item.id} 
+              className="group relative overflow-hidden rounded-lg glass-card border border-hiistoria-gold/20 cursor-pointer"
+              onClick={() => openPortfolioDetail(item)}
+            >
               {/* Image container with overlay */}
               <div className="aspect-[4/5] overflow-hidden rounded-lg">
                 <img
@@ -214,7 +281,10 @@ const Portfolio = () => {
                   </div>
                   
                   <button 
-                    onClick={() => viewOnWhatsApp(item.client, item.event)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      viewOnWhatsApp(item.client, item.event);
+                    }}
                     className="mt-2 w-full py-2 flex items-center justify-center gap-2 bg-hiistoria-gold/20 hover:bg-hiistoria-gold/40 rounded-md border border-hiistoria-gold/40 text-hiistoria-white transition-all duration-300"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -237,6 +307,68 @@ const Portfolio = () => {
           </div>
         )}
       </div>
+
+      {/* Portfolio Detail Modal */}
+      {selectedItem && (
+        <div className="fixed inset-0 z-50 overflow-auto bg-hiistoria-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
+          <div className="relative bg-hiistoria-black-light border border-hiistoria-gold/30 rounded-lg w-full max-w-5xl overflow-hidden max-h-[90vh] flex flex-col">
+            {/* Close button */}
+            <button 
+              onClick={closePortfolioDetail}
+              className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="overflow-y-auto p-6 pt-8">
+              {/* Header */}
+              <div className="mb-8 text-center">
+                <span className="inline-block bg-hiistoria-gold/80 text-hiistoria-black text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
+                  {selectedItem.category}
+                </span>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-hiistoria-white mb-2">
+                  {selectedItem.client}
+                </h2>
+                <p className="text-xl text-hiistoria-gold">{selectedItem.event}</p>
+                <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm text-hiistoria-white-off">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-hiistoria-gold" />
+                    <span>{selectedItem.date}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Camera className="w-4 h-4 text-hiistoria-gold" />
+                    <span>{selectedItem.location}</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Gallery Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                {selectedItem.galleryImages.map((img, index) => (
+                  <div key={index} className="overflow-hidden rounded-lg">
+                    <img 
+                      src={img} 
+                      alt={`${selectedItem.client} gallery image ${index + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Contact button */}
+              <div className="mt-6 flex justify-center">
+                <button 
+                  onClick={() => viewOnWhatsApp(selectedItem.client, selectedItem.event)}
+                  className="btn-primary flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Konsultasi Paket Serupa via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
