@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Camera, Users, Calendar, ExternalLink, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -22,7 +21,7 @@ const Portfolio = () => {
         "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
         "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070",
         "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974",
-        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070"
+        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134"
       ]
     },
     {
@@ -36,7 +35,7 @@ const Portfolio = () => {
       galleryImages: [
         "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070",
         "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
-        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
+        "https://images.unsplash.com/photo-1594106345865-e7d16b880857?q=80&w=2070",
         "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070"
       ]
     },
@@ -162,13 +161,9 @@ const Portfolio = () => {
 
   const viewOnWhatsApp = (clientName: string, eventType: string) => {
     toast({
-      title: "Menghubungkan ke WhatsApp",
-      description: `Memulai konsultasi untuk acara ${eventType} dengan referensi portofolio ${clientName}`,
+      title: "Opening Portfolio",
+      description: `Viewing ${eventType} portfolio for ${clientName}`,
     });
-    
-    const message = `Halo Hiistoria.id, saya tertarik dengan paket ${eventType} setelah melihat portofolio ${clientName}. Bisakah saya mendapatkan informasi lebih lanjut?`;
-    const whatsappLink = `https://wa.me/6282341491347?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, '_blank');
   };
 
   const openPortfolioDetail = (item: typeof portfolioItems[0]) => {
@@ -189,7 +184,6 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Category filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-10 fade-in-section">
           <button 
             onClick={() => filterByCategory('all')}
@@ -237,10 +231,9 @@ const Portfolio = () => {
           {filteredItems.slice(0, visibleItems).map((item) => (
             <div 
               key={item.id} 
-              className="group relative overflow-hidden rounded-lg glass-card border border-hiistoria-gold/20 cursor-pointer"
+              className="group relative overflow-hidden rounded-lg glass-card border border-gray-500/20 cursor-pointer"
               onClick={() => openPortfolioDetail(item)}
             >
-              {/* Image container with overlay */}
               <div className="aspect-[4/5] overflow-hidden rounded-lg">
                 <img
                   src={item.image}
@@ -248,17 +241,14 @@ const Portfolio = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-hiistoria-black to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
                 
-                {/* Category tag */}
                 <div className="absolute top-4 right-4">
                   <span className="bg-hiistoria-gold/80 text-hiistoria-black text-xs uppercase font-bold py-1 px-3 rounded-full">
                     {item.category}
                   </span>
                 </div>
                 
-                {/* Info overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-0 opacity-100 transition-all duration-300">
                   <h3 className="text-xl font-serif font-bold text-hiistoria-white mb-1">
                     {item.client}
@@ -285,10 +275,10 @@ const Portfolio = () => {
                       e.stopPropagation();
                       viewOnWhatsApp(item.client, item.event);
                     }}
-                    className="mt-2 w-full py-2 flex items-center justify-center gap-2 bg-hiistoria-gold/20 hover:bg-hiistoria-gold/40 rounded-md border border-hiistoria-gold/40 text-hiistoria-white transition-all duration-300"
+                    className="mt-2 w-full py-2 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 rounded-md border border-gray-400/40 text-white transition-all duration-300"
                   >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Konsultasi Paket Serupa</span>
+                    <Eye className="w-4 h-4" />
+                    <span>View</span>
                   </button>
                 </div>
               </div>
@@ -308,11 +298,9 @@ const Portfolio = () => {
         )}
       </div>
 
-      {/* Portfolio Detail Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 overflow-auto bg-hiistoria-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
-          <div className="relative bg-hiistoria-black-light border border-hiistoria-gold/30 rounded-lg w-full max-w-5xl overflow-hidden max-h-[90vh] flex flex-col">
-            {/* Close button */}
+        <div className="fixed inset-0 z-50 overflow-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
+          <div className="relative bg-[#1E1E1E] border border-gray-500/30 rounded-lg w-full max-w-5xl overflow-hidden max-h-[90vh] flex flex-col">
             <button 
               onClick={closePortfolioDetail}
               className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all"
@@ -321,7 +309,6 @@ const Portfolio = () => {
             </button>
             
             <div className="overflow-y-auto p-6 pt-8">
-              {/* Header */}
               <div className="mb-8 text-center">
                 <span className="inline-block bg-hiistoria-gold/80 text-hiistoria-black text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
                   {selectedItem.category}
@@ -342,7 +329,6 @@ const Portfolio = () => {
                 </div>
               </div>
               
-              {/* Gallery Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 {selectedItem.galleryImages.map((img, index) => (
                   <div key={index} className="overflow-hidden rounded-lg">
@@ -355,14 +341,13 @@ const Portfolio = () => {
                 ))}
               </div>
               
-              {/* Contact button */}
               <div className="mt-6 flex justify-center">
                 <button 
                   onClick={() => viewOnWhatsApp(selectedItem.client, selectedItem.event)}
-                  className="btn-primary flex items-center gap-2"
+                  className="px-6 py-3 bg-white/10 text-white font-medium rounded hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Konsultasi Paket Serupa via WhatsApp</span>
+                  <Eye className="w-4 h-4" />
+                  <span>View Portfolio Details</span>
                 </button>
               </div>
             </div>

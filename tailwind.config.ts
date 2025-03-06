@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -68,9 +67,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hiistoria: {
-					gold: '#D4AF37',
-					'gold-light': '#F0E68C',
-					'gold-dark': '#B8860B',
+					gold: '#888888',
+					'gold-light': '#CCCCCC',
+					'gold-dark': '#555555',
 					black: '#121212',
 					'black-light': '#1E1E1E',
 					white: '#FFFFFF',
