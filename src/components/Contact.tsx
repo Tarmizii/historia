@@ -28,15 +28,32 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Prepare WhatsApp message
+    const message = `Halo Hiistoria.id, saya ingin memesan paket fotografi:
+- Nama: ${formData.name}
+- Email: ${formData.email}
+- Telepon: ${formData.phone}
+- Tanggal Acara: ${formData.date}
+- Paket: ${formData.packageType}
+- Lokasi: ${formData.location}
+- Pesan Tambahan: ${formData.message}`;
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/6282341491347?text=${encodeURIComponent(message)}`;
+    
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
-        title: "Pesan Terkirim!",
-        description: "Terima kasih telah menghubungi kami. Tim kami akan segera menghubungi Anda.",
+        title: "Mengarahkan ke WhatsApp",
+        description: "Silahkan lanjutkan pemesanan melalui WhatsApp",
         variant: "default",
       });
       
+      // Open WhatsApp in new tab
+      window.open(whatsappUrl, '_blank');
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -46,7 +63,11 @@ const Contact = () => {
         location: "",
         message: ""
       });
-    }, 1500);
+    }, 1000);
+  };
+
+  const contactDirectly = () => {
+    window.open("https://wa.me/6282341491347", "_blank");
   };
 
   return (
@@ -126,15 +147,13 @@ const Contact = () => {
             </div>
             
             <div className="mt-8">
-              <a 
-                href="https://wa.me/6282341491347" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <button 
+                onClick={contactDirectly}
                 className="flex items-center justify-center gap-2 btn-primary w-full"
               >
-                <Instagram className="w-5 h-5" />
-                <span>Hubungi via WhatsApp</span>
-              </a>
+                <MessageSquare className="w-5 h-5" />
+                <span>Hubungi Langsung via WhatsApp</span>
+              </button>
             </div>
           </div>
 
@@ -222,10 +241,10 @@ const Contact = () => {
                     required
                   >
                     <option value="" disabled>Pilih paket</option>
-                    <option value="engagement">Engagement</option>
-                    <option value="prewedding">Prewedding</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="special">Spesial Package</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Prewedding">Prewedding</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Spesial Package">Spesial Package</option>
                   </select>
                 </div>
                 
@@ -271,7 +290,7 @@ const Contact = () => {
                 ) : (
                   <Send className="w-5 h-5" />
                 )}
-                <span>{isSubmitting ? "Mengirim..." : "Kirim Pesan"}</span>
+                <span>{isSubmitting ? "Mengirim..." : "Pesan via WhatsApp"}</span>
               </button>
             </form>
           </div>
