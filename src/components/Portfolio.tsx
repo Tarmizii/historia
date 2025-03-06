@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Camera, Users, Calendar, ExternalLink, X } from "lucide-react";
+import { Camera, Users, Calendar, ExternalLink, X, Eye } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Portfolio = () => {
