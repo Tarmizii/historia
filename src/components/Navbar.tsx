@@ -29,9 +29,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <h1 className="text-2xl md:text-3xl font-serif font-bold text-white">
-            <span className="text-gray-400">HISTORIA</span>.ID
-          </h1>
+          <img 
+            src="/lovable-uploads/69d9dcd4-8ac0-4737-9acd-ce7d7bbad393.png" 
+            alt="HISTORIA.ID Logo" 
+            className="h-12 md:h-14" 
+          />
         </a>
 
         {/* Desktop Navigation */}

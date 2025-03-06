@@ -1,9 +1,26 @@
 
-import { Camera, FileImage, MapPin, Save } from "lucide-react";
+import { Camera, FileImage, MapPin, Save, X } from "lucide-react";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 const Services = () => {
+  const { toast } = useToast();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    date: new Date(),
+    packageType: "",
+    location: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const packages = [
     {
@@ -85,6 +102,78 @@ const Services = () => {
     }
   ];
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleDateChange = (date: Date | undefined) => {
+    if (date) {
+      setFormData(prev => ({
+        ...prev,
+        date
+      }));
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Prepare WhatsApp message
+    const message = `Halo Hiistoria.id, saya ingin memesan paket fotografi:
+- Nama: ${formData.name}
+- Email: ${formData.email}
+- Telepon: ${formData.phone}
+- Tanggal Acara: ${format(formData.date, 'dd MMMM yyyy')}
+- Paket: ${formData.packageType || selectedPackage?.name}
+- Lokasi: ${formData.location}
+- Pesan Tambahan: ${formData.message}`;
+
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/6282341491347?text=${encodeURIComponent(message)}`;
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Mengarahkan ke WhatsApp",
+        description: "Silahkan lanjutkan pemesanan melalui WhatsApp",
+        variant: "default",
+      });
+      
+      // Open WhatsApp in new tab
+      window.open(whatsappUrl, '_blank');
+      
+      // Reset form and close modal
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        date: new Date(),
+        packageType: "",
+        location: "",
+        message: ""
+      });
+      setSelectedPackage(null);
+    }, 1000);
+  };
+
+  const selectPackage = (pkg: typeof packages[0]) => {
+    setSelectedPackage(pkg);
+    setFormData(prev => ({
+      ...prev,
+      packageType: pkg.name
+    }));
+  };
+
+  const closeModal = () => {
+    setSelectedPackage(null);
+  };
+
   return (
     <section id="services" className="py-20 md:py-28 bg-hiistoria-black-light">
       <div className="container mx-auto px-4">
@@ -141,8 +230,8 @@ const Services = () => {
                   ))}
                 </div>
                 
-                <a 
-                  href="#contact" 
+                <button 
+                  onClick={() => selectPackage(pkg)}
                   className={`mt-auto w-full text-center py-3 px-6 rounded transition-all duration-300 ${
                     hoveredCard === index 
                       ? "bg-hiistoria-gold text-hiistoria-black" 
@@ -150,12 +239,163 @@ const Services = () => {
                   }`}
                 >
                   Pilih Paket
-                </a>
+                </button>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Order Form Modal */}
+      {selectedPackage && (
+        <div className="fixed inset-0 z-50 overflow-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
+          <div className="relative bg-[#1E1E1E] border border-gray-500/30 rounded-lg w-full max-w-3xl overflow-hidden">
+            <button 
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            
+            <div className="p-6 pt-8">
+              <div className="mb-8 text-center">
+                <span className="inline-block bg-hiistoria-gold/80 text-hiistoria-black text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
+                  {selectedPackage.name}
+                </span>
+                <h2 className="text-3xl font-serif font-bold text-hiistoria-white mb-2">
+                  Form Pemesanan
+                </h2>
+                <p className="text-hiistoria-white/70">
+                  Silahkan isi formulir di bawah untuk memesan paket {selectedPackage.name}
+                </p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-hiistoria-white mb-2">
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-hiistoria-white mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="phone" className="block text-hiistoria-white mb-2">
+                      Nomor Telepon
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-hiistoria-white mb-2">
+                      Tanggal Acara
+                    </label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <button
+                          type="button"
+                          className="w-full flex justify-between items-center bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                        >
+                          {format(formData.date, "dd MMMM yyyy")}
+                          <Calendar className="h-4 w-4 opacity-50" />
+                        </button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0 border border-hiistoria-gold/30 bg-hiistoria-black">
+                        <Calendar
+                          mode="single"
+                          selected={formData.date}
+                          onSelect={handleDateChange}
+                          initialFocus
+                          className={cn("p-3 pointer-events-auto bg-hiistoria-black border-none text-hiistoria-white")}
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="location" className="block text-hiistoria-white mb-2">
+                    Lokasi Acara
+                  </label>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    value={formData.location}
+                    onChange={handleChange}
+                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                    placeholder="Kota atau venue"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-hiistoria-white mb-2">
+                    Pesan
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                    placeholder="Detil tambahan atau pertanyaan..."
+                  />
+                </div>
+                
+                <button
+                  type="submit"
+                  className="btn-primary w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="w-5 h-5 border-2 border-hiistoria-black border-t-transparent rounded-full animate-spin"></div>
+                      <span>Mengirim...</span>
+                    </div>
+                  ) : (
+                    "Pesan via WhatsApp"
+                  )}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

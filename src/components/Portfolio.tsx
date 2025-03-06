@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Camera, Users, Calendar, ExternalLink, X, Eye } from "lucide-react";
+import { Camera, Users, Calendar, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Portfolio = () => {
@@ -270,17 +269,6 @@ const Portfolio = () => {
                       <span className="text-hiistoria-white-off">{item.location}</span>
                     </div>
                   </div>
-                  
-                  <button 
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      viewOnWhatsApp(item.client, item.event);
-                    }}
-                    className="mt-2 w-full py-2 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 rounded-md border border-gray-400/40 text-white transition-all duration-300"
-                  >
-                    <Eye className="w-4 h-4" />
-                    <span>View</span>
-                  </button>
                 </div>
               </div>
             </div>
@@ -340,16 +328,6 @@ const Portfolio = () => {
                     />
                   </div>
                 ))}
-              </div>
-              
-              <div className="mt-6 flex justify-center">
-                <button 
-                  onClick={() => viewOnWhatsApp(selectedItem.client, selectedItem.event)}
-                  className="px-6 py-3 bg-white/10 text-white font-medium rounded hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-                >
-                  <Eye className="w-4 h-4" />
-                  <span>View Portfolio Details</span>
-                </button>
               </div>
             </div>
           </div>
