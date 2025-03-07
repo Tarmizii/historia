@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +31,13 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <img 
-            src="/lovable-uploads/69d9dcd4-8ac0-4737-9acd-ce7d7bbad393.png" 
-            alt="HISTORIA.ID Logo" 
-            className="h-12 md:h-14" 
-          />
+          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-hiistoria-gold flex items-center justify-center bg-hiistoria-black">
+            <img 
+              src="/lovable-uploads/69d9dcd4-8ac0-4737-9acd-ce7d7bbad393.png" 
+              alt="HISTORIA.ID Logo" 
+              className="h-10 md:h-12 object-contain" 
+            />
+          </div>
         </a>
 
         {/* Desktop Navigation */}
@@ -68,15 +72,40 @@ const Navbar = () => {
           >
             Hubungi Kami
           </a>
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-hiistoria-black-light border border-hiistoria-gold/30 hover:bg-hiistoria-gold/10 transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-5 w-5 text-hiistoria-gold" />
+            ) : (
+              <Moon className="h-5 w-5 text-hiistoria-gold" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Navigation Toggle */}
-        <button
-          className="md:hidden text-hiistoria-white focus:outline-none"
-          onClick={toggleMenu}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center space-x-4">
+          <button 
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-hiistoria-black-light border border-hiistoria-gold/30 hover:bg-hiistoria-gold/10 transition-colors"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-5 w-5 text-hiistoria-gold" />
+            ) : (
+              <Moon className="h-5 w-5 text-hiistoria-gold" />
+            )}
+          </button>
+          
+          <button
+            className="text-hiistoria-white focus:outline-none"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

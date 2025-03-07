@@ -7,7 +7,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-hiistoria-black-light">
+    <section id="contact" className="py-20 md:py-28 bg-hiistoria-black-light dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in-section">
           <h2 className="section-heading">Hubungi Kami</h2>
@@ -17,7 +17,7 @@ const Contact = () => {
         </div>
 
         <div className="max-w-2xl mx-auto fade-in-section">
-          <h3 className="text-2xl font-serif font-bold text-hiistoria-white mb-6 text-center">
+          <h3 className="text-2xl font-serif font-bold text-hiistoria-white mb-6 text-center dark:text-gray-100">
             Informasi Kontak
           </h3>
           
@@ -29,7 +29,7 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <h4 className="text-xl font-serif text-hiistoria-white mb-1">Instagram</h4>
+                <h4 className="text-xl font-serif text-hiistoria-white mb-1 dark:text-gray-100">Instagram</h4>
                 <a 
                   href="https://instagram.com/Hiistoria.id" 
                   target="_blank" 
@@ -48,7 +48,7 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <h4 className="text-xl font-serif text-hiistoria-white mb-1">WhatsApp</h4>
+                <h4 className="text-xl font-serif text-hiistoria-white mb-1 dark:text-gray-100">WhatsApp</h4>
                 <a 
                   href="https://wa.me/6282341491347" 
                   target="_blank" 
@@ -69,7 +69,7 @@ const Contact = () => {
               <MessageSquare className="w-5 h-5" />
               <span>Hubungi Langsung via WhatsApp</span>
             </button>
-            <p className="text-hiistoria-white/60 mt-4">
+            <p className="text-hiistoria-white/60 mt-4 dark:text-gray-400">
               Atau pilih salah satu paket layanan kami di atas untuk melakukan pemesanan
             </p>
           </div>
