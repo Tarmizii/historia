@@ -54,11 +54,11 @@ const About = () => {
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in-section">
           {features.map((feature, index) => <div key={index} className="glass-card p-6 hover:shadow-gold transition-shadow duration-300">
               <div className="mb-4 flex justify-center">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center border border-hiistoria-gold/30 bg-gray-300">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center border border-hiistoria-gold/30 bg-slate-50">
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-xl font-serif font-bold text-center mb-3 text-zinc-500">
+              <h3 className="text-xl font-serif font-bold text-center mb-3 text-gray-50">
                 {feature.title}
               </h3>
               <p className="text-hiistoria-white/70 text-center">
