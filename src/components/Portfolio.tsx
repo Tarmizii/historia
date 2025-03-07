@@ -250,23 +250,23 @@ const Portfolio = () => {
                 </div>
                 
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-0 opacity-100 transition-all duration-300">
-                  <h3 className="text-xl font-serif font-bold text-hiistoria-white mb-1">
+                  <h3 className="text-xl font-serif font-bold text-white mb-1">
                     {item.client}
                   </h3>
-                  <p className="text-hiistoria-gold mb-4">{item.event}</p>
+                  <p className="text-white mb-4">{item.event}</p>
                   
                   <div className="space-y-2 mb-4 opacity-80 text-sm">
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-hiistoria-gold" />
-                      <span className="text-hiistoria-white-off">{item.date}</span>
+                      <Calendar className="w-4 h-4 text-white" />
+                      <span className="text-white">{item.date}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-hiistoria-gold" />
-                      <span className="text-hiistoria-white-off">{item.client}</span>
+                      <Users className="w-4 h-4 text-white" />
+                      <span className="text-white">{item.client}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Camera className="w-4 h-4 text-hiistoria-gold" />
-                      <span className="text-hiistoria-white-off">{item.location}</span>
+                      <Camera className="w-4 h-4 text-white" />
+                      <span className="text-white">{item.location}</span>
                     </div>
                   </div>
                 </div>
@@ -302,17 +302,17 @@ const Portfolio = () => {
                 <span className="inline-block bg-hiistoria-gold/80 text-hiistoria-black text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
                   {selectedItem.category}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-hiistoria-white mb-2">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-2">
                   {selectedItem.client}
                 </h2>
                 <p className="text-xl text-hiistoria-gold">{selectedItem.event}</p>
-                <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm text-hiistoria-white-off">
+                <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm text-white-off">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4 text-hiistoria-gold" />
+                    <Calendar className="w-4 h-4 text-white" />
                     <span>{selectedItem.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Camera className="w-4 h-4 text-hiistoria-gold" />
+                    <Camera className="w-4 h-4 text-white" />
                     <span>{selectedItem.location}</span>
                   </div>
                 </div>

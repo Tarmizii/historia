@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+
 const Services = () => {
   const {
     toast
@@ -21,18 +22,19 @@ const Services = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const packages = [{
     name: "Engagement",
     price: "Rp 1.800.000",
     description: "Abadikan momen spesial lamaran Anda dengan paket yang lengkap",
     features: [{
-      icon: <Calendar className="w-5 h-5 text-hiistoria-gold bg-[z] bg-transparent" />,
+      icon: <Calendar className="w-5 h-5 text-white" />,
       text: "Unlimited shoot"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "Mini Album (40 lembar foto jumbo)"
     }, {
-      icon: <Save className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <Save className="w-5 h-5 text-white" />,
       text: "Semua file dalam flashdisk"
     }]
   }, {
@@ -40,13 +42,13 @@ const Services = () => {
     price: "Rp 2.200.000 - Rp 4.000.000",
     description: "Foto prewedding dengan konsep yang sesuai dengan karakter Anda",
     features: [{
-      icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <Calendar className="w-5 h-5 text-white" />,
       text: "Unlimited shoot"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "Album eksklusif & cetak jumbo"
     }, {
-      icon: <MapPin className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <MapPin className="w-5 h-5 text-white" />,
       text: "1-2 lokasi foto"
     }],
     popular: true
@@ -55,13 +57,13 @@ const Services = () => {
     price: "Rp 2.300.000 - Rp 5.000.000",
     description: "Dokumentasikan pernikahan Anda dengan sentuhan profesional",
     features: [{
-      icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <Calendar className="w-5 h-5 text-white" />,
       text: "Unlimited shoot"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "80 - 120 lembar foto jumbo"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "Album eksklusif + frame premium"
     }]
   }, {
@@ -69,16 +71,17 @@ const Services = () => {
     price: "Rp 8.500.000",
     description: "Paket lengkap untuk dokumentasi wedding dan ngunduh mantu",
     features: [{
-      icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <Calendar className="w-5 h-5 text-white" />,
       text: "Foto wedding + ngunduh"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "16-24 inch 2 pcs + frame"
     }, {
-      icon: <FileImage className="w-5 h-5 text-hiistoria-gold" />,
+      icon: <FileImage className="w-5 h-5 text-white" />,
       text: "Unlimited shoot & fullpress album"
     }]
   }];
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {
       name,
@@ -89,6 +92,7 @@ const Services = () => {
       [name]: value
     }));
   };
+
   const handleDateChange = (date: Date | undefined) => {
     if (date) {
       setFormData(prev => ({
@@ -97,11 +101,11 @@ const Services = () => {
       }));
     }
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare WhatsApp message
     const message = `Halo Hiistoria.id, saya ingin memesan paket fotografi:
 - Nama: ${formData.name}
 - Email: ${formData.email}
@@ -111,10 +115,8 @@ const Services = () => {
 - Lokasi: ${formData.location}
 - Pesan Tambahan: ${formData.message}`;
 
-    // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/6282341491347?text=${encodeURIComponent(message)}`;
 
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
@@ -123,10 +125,8 @@ const Services = () => {
         variant: "default"
       });
 
-      // Open WhatsApp in new tab
       window.open(whatsappUrl, '_blank');
 
-      // Reset form and close modal
       setFormData({
         name: "",
         email: "",
@@ -139,6 +139,7 @@ const Services = () => {
       setSelectedPackage(null);
     }, 1000);
   };
+
   const selectPackage = (pkg: typeof packages[0]) => {
     setSelectedPackage(pkg);
     setFormData(prev => ({
@@ -146,9 +147,11 @@ const Services = () => {
       packageType: pkg.name
     }));
   };
+
   const closeModal = () => {
     setSelectedPackage(null);
   };
+
   return <section id="services" className="py-20 md:py-28 bg-hiistoria-black-light dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in-section">
@@ -160,10 +163,8 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in-section">
           {packages.map((pkg, index) => <div key={index} className={`relative overflow-hidden rounded-lg transition-all duration-500 ${hoveredCard === index ? "shadow-gold-intense transform -translate-y-2" : "shadow-lg"}`} onMouseEnter={() => setHoveredCard(index)} onMouseLeave={() => setHoveredCard(null)}>
-              {/* Gradient border effect */}
               <div className="absolute inset-0 p-0.5 rounded-lg bg-gold-gradient bg-300% animate-gold-shimmer"></div>
               
-              {/* Card content */}
               <div className="relative bg-hiistoria-black-light p-8 rounded-lg h-full flex flex-col bg-[hiistoria-gold-light] bg-hiistoria-gold">
                 {pkg.popular && <div className="absolute top-0 right-0">
                     <div className="text-white text-xs font-bold uppercase py-1 px-3 rounded-bl-lg rounded-tr-lg bg-[hiistoria-black-light] bg-hiistoria-black">
@@ -190,7 +191,7 @@ const Services = () => {
                     </div>)}
                 </div>
                 
-                <button onClick={() => selectPackage(pkg)} className={`mt-auto w-full text-center py-3 px-6 rounded transition-all duration-300 ${hoveredCard === index ? "bg-hiistoria-gold text-white" : "border border-hiistoria-gold text-white hover:bg-hiistoria-gold/10"}`}>
+                <button onClick={() => selectPackage(pkg)} className={`mt-auto w-full text-center py-3 px-6 rounded transition-all duration-300 ${hoveredCard === index ? "bg-gray-400 text-black" : "border border-gray-400 text-white hover:bg-gray-400/30"}`}>
                   Pilih Paket
                 </button>
               </div>
@@ -198,7 +199,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Order Form Modal */}
       {selectedPackage && <div className="fixed inset-0 z-50 overflow-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
           <div className="relative bg-[#1E1E1E] dark:bg-gray-800 border border-gray-500/30 rounded-lg w-full max-w-3xl overflow-hidden">
             <button onClick={closeModal} className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all">
@@ -291,4 +291,5 @@ const Services = () => {
         </div>}
     </section>;
 };
+
 export default Services;
