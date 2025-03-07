@@ -1,9 +1,9 @@
 
-import { Camera, FileImage, MapPin, Save, X } from "lucide-react";
+import { Calendar, FileImage, MapPin, Save, X } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
@@ -29,7 +29,7 @@ const Services = () => {
       description: "Abadikan momen spesial lamaran Anda dengan paket yang lengkap",
       features: [
         {
-          icon: <Camera className="w-5 h-5 text-hiistoria-gold" />,
+          icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
           text: "Unlimited shoot"
         },
         {
@@ -48,7 +48,7 @@ const Services = () => {
       description: "Foto prewedding dengan konsep yang sesuai dengan karakter Anda",
       features: [
         {
-          icon: <Camera className="w-5 h-5 text-hiistoria-gold" />,
+          icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
           text: "Unlimited shoot"
         },
         {
@@ -68,7 +68,7 @@ const Services = () => {
       description: "Dokumentasikan pernikahan Anda dengan sentuhan profesional",
       features: [
         {
-          icon: <Camera className="w-5 h-5 text-hiistoria-gold" />,
+          icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
           text: "Unlimited shoot"
         },
         {
@@ -87,7 +87,7 @@ const Services = () => {
       description: "Paket lengkap untuk dokumentasi wedding dan ngunduh mantu",
       features: [
         {
-          icon: <Camera className="w-5 h-5 text-hiistoria-gold" />,
+          icon: <Calendar className="w-5 h-5 text-hiistoria-gold" />,
           text: "Foto wedding + ngunduh"
         },
         {
@@ -175,7 +175,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-hiistoria-black-light">
+    <section id="services" className="py-20 md:py-28 bg-hiistoria-black-light dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 fade-in-section">
           <h2 className="section-heading">Paket Layanan</h2>
@@ -200,22 +200,22 @@ const Services = () => {
               <div className="absolute inset-0 p-0.5 rounded-lg bg-gold-gradient bg-300% animate-gold-shimmer"></div>
               
               {/* Card content */}
-              <div className="relative bg-hiistoria-black-light p-8 rounded-lg h-full flex flex-col">
+              <div className="relative bg-hiistoria-black-light dark:bg-gray-800 p-8 rounded-lg h-full flex flex-col">
                 {pkg.popular && (
                   <div className="absolute top-0 right-0">
-                    <div className="bg-hiistoria-gold text-hiistoria-black text-xs font-bold uppercase py-1 px-3 rounded-bl-lg rounded-tr-lg">
+                    <div className="bg-hiistoria-gold text-white text-xs font-bold uppercase py-1 px-3 rounded-bl-lg rounded-tr-lg">
                       Popular
                     </div>
                   </div>
                 )}
                 
-                <h3 className="text-2xl font-serif font-bold text-hiistoria-white mb-2">
+                <h3 className="text-2xl font-serif font-bold text-hiistoria-white mb-2 dark:text-white">
                   {pkg.name}
                 </h3>
-                <div className="text-hiistoria-gold text-2xl font-bold mb-4">
+                <div className="text-hiistoria-white text-2xl font-bold mb-4 dark:text-white">
                   {pkg.price}
                 </div>
-                <p className="text-hiistoria-white/70 mb-6 flex-grow">
+                <p className="text-hiistoria-white/70 mb-6 flex-grow dark:text-gray-300">
                   {pkg.description}
                 </p>
                 
@@ -225,7 +225,7 @@ const Services = () => {
                       <div className="shrink-0 mr-3">
                         {feature.icon}
                       </div>
-                      <span className="text-hiistoria-white/80">{feature.text}</span>
+                      <span className="text-hiistoria-white/80 dark:text-gray-300">{feature.text}</span>
                     </div>
                   ))}
                 </div>
@@ -234,8 +234,8 @@ const Services = () => {
                   onClick={() => selectPackage(pkg)}
                   className={`mt-auto w-full text-center py-3 px-6 rounded transition-all duration-300 ${
                     hoveredCard === index 
-                      ? "bg-hiistoria-gold text-hiistoria-black" 
-                      : "border border-hiistoria-gold text-hiistoria-gold hover:bg-hiistoria-gold/10"
+                      ? "bg-hiistoria-gold text-white" 
+                      : "border border-hiistoria-gold text-white hover:bg-hiistoria-gold/10"
                   }`}
                 >
                   Pilih Paket
@@ -249,7 +249,7 @@ const Services = () => {
       {/* Order Form Modal */}
       {selectedPackage && (
         <div className="fixed inset-0 z-50 overflow-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
-          <div className="relative bg-[#1E1E1E] border border-gray-500/30 rounded-lg w-full max-w-3xl overflow-hidden">
+          <div className="relative bg-[#1E1E1E] dark:bg-gray-800 border border-gray-500/30 rounded-lg w-full max-w-3xl overflow-hidden">
             <button 
               onClick={closeModal}
               className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all"
@@ -259,13 +259,13 @@ const Services = () => {
             
             <div className="p-6 pt-8">
               <div className="mb-8 text-center">
-                <span className="inline-block bg-hiistoria-gold/80 text-hiistoria-black text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
+                <span className="inline-block bg-hiistoria-gold/80 text-white text-sm uppercase font-bold py-1 px-4 rounded-full mb-4">
                   {selectedPackage.name}
                 </span>
-                <h2 className="text-3xl font-serif font-bold text-hiistoria-white mb-2">
+                <h2 className="text-3xl font-serif font-bold text-hiistoria-white mb-2 dark:text-white">
                   Form Pemesanan
                 </h2>
-                <p className="text-hiistoria-white/70">
+                <p className="text-hiistoria-white/70 dark:text-gray-300">
                   Silahkan isi formulir di bawah untuk memesan paket {selectedPackage.name}
                 </p>
               </div>
@@ -273,7 +273,7 @@ const Services = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-hiistoria-white mb-2">
+                    <label htmlFor="name" className="block text-hiistoria-white mb-2 dark:text-gray-200">
                       Nama Lengkap
                     </label>
                     <input
@@ -282,13 +282,13 @@ const Services = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
                       required
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-hiistoria-white mb-2">
+                    <label htmlFor="email" className="block text-hiistoria-white mb-2 dark:text-gray-200">
                       Email
                     </label>
                     <input
@@ -297,7 +297,7 @@ const Services = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
                       required
                     />
                   </div>
@@ -305,7 +305,7 @@ const Services = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-hiistoria-white mb-2">
+                    <label htmlFor="phone" className="block text-hiistoria-white mb-2 dark:text-gray-200">
                       Nomor Telepon
                     </label>
                     <input
@@ -314,40 +314,44 @@ const Services = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                      className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
                       required
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-hiistoria-white mb-2">
+                    <label className="block text-hiistoria-white mb-2 dark:text-gray-200">
                       Tanggal Acara
                     </label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <button
-                          type="button"
-                          className="w-full flex justify-between items-center bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
-                        >
-                          {format(formData.date, "dd MMMM yyyy")}
-                          <Calendar className="h-4 w-4 opacity-50" />
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0 border border-hiistoria-gold/30 bg-hiistoria-black">
-                        <Calendar
-                          mode="single"
-                          selected={formData.date}
-                          onSelect={handleDateChange}
-                          initialFocus
-                          className={cn("p-3 pointer-events-auto bg-hiistoria-black border-none text-hiistoria-white")}
-                        />
-                      </PopoverContent>
-                    </Popover>
+                    <div className="relative">
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <button
+                            type="button"
+                            className="w-full flex justify-between items-center bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
+                          >
+                            {format(formData.date, "dd MMMM yyyy")}
+                            <Calendar className="h-4 w-4 opacity-50" />
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent className="calendar-popover p-0" align="start">
+                          <div className="calendar-wrapper">
+                            <CalendarComponent
+                              mode="single"
+                              selected={formData.date}
+                              onSelect={handleDateChange}
+                              initialFocus
+                              className={cn("p-3")}
+                            />
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="location" className="block text-hiistoria-white mb-2">
+                  <label htmlFor="location" className="block text-hiistoria-white mb-2 dark:text-gray-200">
                     Lokasi Acara
                   </label>
                   <input
@@ -356,14 +360,14 @@ const Services = () => {
                     name="location"
                     value={formData.location}
                     onChange={handleChange}
-                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
                     placeholder="Kota atau venue"
                     required
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-hiistoria-white mb-2">
+                  <label htmlFor="message" className="block text-hiistoria-white mb-2 dark:text-gray-200">
                     Pesan
                   </label>
                   <textarea
@@ -372,7 +376,7 @@ const Services = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold"
+                    className="w-full bg-hiistoria-black border border-hiistoria-gold/30 rounded-md px-4 py-2 text-hiistoria-white focus:border-hiistoria-gold focus:outline-none focus:ring-1 focus:ring-hiistoria-gold dark:bg-gray-700 dark:text-white"
                     placeholder="Detil tambahan atau pertanyaan..."
                   />
                 </div>
@@ -384,7 +388,7 @@ const Services = () => {
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-5 h-5 border-2 border-hiistoria-black border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                       <span>Mengirim...</span>
                     </div>
                   ) : (

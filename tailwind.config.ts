@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,9 +68,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hiistoria: {
-					gold: '#888888',
-					'gold-light': '#CCCCCC',
-					'gold-dark': '#555555',
+					gold: '#000000',
+					'gold-light': '#444444',
+					'gold-dark': '#000000',
 					black: '#121212',
 					'black-light': '#1E1E1E',
 					white: '#FFFFFF',
@@ -141,14 +142,14 @@ export default {
 				'pulse-soft': 'pulse-soft 3s infinite ease-in-out',
 			},
 			backgroundImage: {
-				'gold-gradient': 'linear-gradient(45deg, #D4AF37, #F0E68C, #B8860B, #D4AF37)',
+				'gold-gradient': 'linear-gradient(45deg, #000000, #444444, #000000, #222222)',
 			},
 			backgroundSize: {
 				'300%': '300% 300%',
 			},
 			boxShadow: {
-				'gold': '0 0 15px rgba(212, 175, 55, 0.4)',
-				'gold-intense': '0 0 20px rgba(212, 175, 55, 0.6)',
+				'gold': '0 0 15px rgba(0, 0, 0, 0.4)',
+				'gold-intense': '0 0 20px rgba(0, 0, 0, 0.6)',
 			},
 		}
 	},

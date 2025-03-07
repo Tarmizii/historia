@@ -25,7 +25,7 @@ const Contact = () => {
             <div className="flex items-start">
               <div className="shrink-0 mr-4">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center bg-hiistoria-gold/10 border border-hiistoria-gold/30">
-                  <Camera className="w-6 h-6 text-hiistoria-gold" />
+                  <Camera className="w-6 h-6 text-hiistoria-gold dark:text-white" />
                 </div>
               </div>
               <div>
@@ -34,7 +34,7 @@ const Contact = () => {
                   href="https://instagram.com/Hiistoria.id" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-hiistoria-gold hover:underline"
+                  className="text-hiistoria-gold hover:underline dark:text-white"
                 >
                   @Hiistoria.id
                 </a>
@@ -44,7 +44,7 @@ const Contact = () => {
             <div className="flex items-start">
               <div className="shrink-0 mr-4">
                 <div className="w-12 h-12 rounded-full flex items-center justify-center bg-hiistoria-gold/10 border border-hiistoria-gold/30">
-                  <MessageSquare className="w-6 h-6 text-hiistoria-gold" />
+                  <MessageSquare className="w-6 h-6 text-hiistoria-gold dark:text-white" />
                 </div>
               </div>
               <div>
@@ -53,7 +53,7 @@ const Contact = () => {
                   href="https://wa.me/6282341491347" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-hiistoria-gold hover:underline"
+                  className="text-hiistoria-gold hover:underline dark:text-white"
                 >
                   +62 823-4149-1347
                 </a>

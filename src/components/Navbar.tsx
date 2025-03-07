@@ -33,7 +33,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center">
           <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-hiistoria-gold flex items-center justify-center bg-hiistoria-black">
             <img 
-              src="/lovable-uploads/69d9dcd4-8ac0-4737-9acd-ce7d7bbad393.png" 
+              src="/lovable-uploads/ce059d90-2958-4c2e-ae5a-de607a167a04.png" 
               alt="HISTORIA.ID Logo" 
               className="h-10 md:h-12 object-contain" 
             />
@@ -78,9 +78,9 @@ const Navbar = () => {
             aria-label="Toggle dark mode"
           >
             {theme === 'dark' ? (
-              <Sun className="h-5 w-5 text-hiistoria-gold" />
+              <Sun className="h-5 w-5 text-white" />
             ) : (
-              <Moon className="h-5 w-5 text-hiistoria-gold" />
+              <Moon className="h-5 w-5 text-black" />
             )}
           </button>
         </div>
@@ -93,9 +93,9 @@ const Navbar = () => {
             aria-label="Toggle dark mode"
           >
             {theme === 'dark' ? (
-              <Sun className="h-5 w-5 text-hiistoria-gold" />
+              <Sun className="h-5 w-5 text-white" />
             ) : (
-              <Moon className="h-5 w-5 text-hiistoria-gold" />
+              <Moon className="h-5 w-5 text-black" />
             )}
           </button>
           
