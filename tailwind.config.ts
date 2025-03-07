@@ -68,9 +68,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hiistoria: {
-					gold: '#000000',
-					'gold-light': '#444444',
-					'gold-dark': '#000000',
+					gold: '#333333',
+					'gold-light': '#555555',
+					'gold-dark': '#222222',
 					black: '#121212',
 					'black-light': '#1E1E1E',
 					white: '#FFFFFF',
@@ -142,14 +142,14 @@ export default {
 				'pulse-soft': 'pulse-soft 3s infinite ease-in-out',
 			},
 			backgroundImage: {
-				'gold-gradient': 'linear-gradient(45deg, #000000, #444444, #000000, #222222)',
+				'gold-gradient': 'linear-gradient(45deg, #222222, #555555, #333333, #444444)',
 			},
 			backgroundSize: {
 				'300%': '300% 300%',
 			},
 			boxShadow: {
-				'gold': '0 0 15px rgba(0, 0, 0, 0.4)',
-				'gold-intense': '0 0 20px rgba(0, 0, 0, 0.6)',
+				'gold': '0 0 15px rgba(51, 51, 51, 0.4)',
+				'gold-intense': '0 0 20px rgba(51, 51, 51, 0.6)',
 			},
 		}
 	},

@@ -1,12 +1,10 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
-import { useTheme } from "@/hooks/use-theme";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +29,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 border-hiistoria-gold flex items-center justify-center bg-hiistoria-black">
+          <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
             <img 
               src="/lovable-uploads/ce059d90-2958-4c2e-ae5a-de607a167a04.png" 
               alt="HISTORIA.ID Logo" 
@@ -72,33 +70,10 @@ const Navbar = () => {
           >
             Hubungi Kami
           </a>
-          <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-hiistoria-black-light border border-hiistoria-gold/30 hover:bg-hiistoria-gold/10 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {theme === 'dark' ? (
-              <Sun className="h-5 w-5 text-white" />
-            ) : (
-              <Moon className="h-5 w-5 text-black" />
-            )}
-          </button>
         </div>
 
         {/* Mobile Navigation Toggle */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button 
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-hiistoria-black-light border border-hiistoria-gold/30 hover:bg-hiistoria-gold/10 transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {theme === 'dark' ? (
-              <Sun className="h-5 w-5 text-white" />
-            ) : (
-              <Moon className="h-5 w-5 text-black" />
-            )}
-          </button>
-          
+        <div className="md:hidden flex items-center">
           <button
             className="text-hiistoria-white focus:outline-none"
             onClick={toggleMenu}

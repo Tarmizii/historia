@@ -10,14 +10,11 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import ScrollToTop from "@/components/ScrollToTop";
-import { useTheme } from "@/hooks/use-theme";
 
 const Index = () => {
-  const { theme } = useTheme();
-  
   return (
     <SmoothScroll>
-      <div className={`min-h-screen bg-hiistoria-black ${theme === 'dark' ? 'dark bg-gray-900' : ''}`}>
+      <div className="min-h-screen bg-hiistoria-black">
         <Navbar />
         <ScrollToTop />
         <Hero />
