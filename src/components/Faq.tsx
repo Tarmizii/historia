@@ -44,22 +44,46 @@ const Faq = () => {
         </div>
 
         <div className="max-w-3xl mx-auto fade-in-section">
-          {faqItems.map((item, index) => <div key={index} className={`mb-8 overflow-hidden border-b border-hiistoria-gold/20 ${index === faqItems.length - 1 ? 'border-b-0' : ''}`}>
-              <button onClick={() => toggleItem(index)} className="flex justify-between items-center w-full py-5 px-4 text-left focus:outline-none font-normal text-base rounded">
-                <h3 className="text-lg md:text-xl font-serif font-medium text-hiistoria-white">
+          {faqItems.map((item, index) => (
+            <div 
+              key={index} 
+              className={`mb-10 overflow-hidden rounded-lg ${
+                openIndex === index ? 'bg-hiistoria-black/50' : ''
+              } transition-colors duration-300 ${
+                index === faqItems.length - 1 ? '' : 'border-b border-hiistoria-gold/20 pb-2'
+              }`}
+            >
+              <button 
+                onClick={() => toggleItem(index)} 
+                className="flex justify-between items-center w-full py-6 px-6 text-left focus:outline-none rounded-t-lg hover:bg-hiistoria-gold/5 transition-all duration-300"
+              >
+                <h3 className="text-lg md:text-xl font-serif font-medium text-hiistoria-white pr-4">
                   {item.question}
                 </h3>
-                <span className="text-white ml-4">
-                  {openIndex === index ? <ChevronUp size={20} className="bg-hiistoria-white rounded-3xl px-[2px] mx-[12px]" /> : <ChevronDown size={20} />}
+                <span className={`flex-shrink-0 text-white ml-4 p-2 rounded-full ${
+                  openIndex === index ? 'bg-hiistoria-gold/10' : ''
+                }`}>
+                  {openIndex === index ? (
+                    <ChevronUp size={20} />
+                  ) : (
+                    <ChevronDown size={20} />
+                  )}
                 </span>
               </button>
               
-              <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 pb-8 px-4' : 'max-h-0'}`}>
-                <p className="text-hiistoria-white/70">
-                  {item.answer}
-                </p>
+              <div 
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <div className="p-6 pt-0 border-t border-hiistoria-gold/10">
+                  <p className="text-hiistoria-white/80 leading-relaxed text-base">
+                    {item.answer}
+                  </p>
+                </div>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
     </section>;
