@@ -18,26 +18,26 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Anita & Budi",
+      name: "Nia & Yusda",
       role: "Wedding Client",
-      image: "https://images.unsplash.com/photo-1612681621979-fffe5920dbe8?q=80&w=1974",
+      image: "/lovable-uploads/wedding/WeddingNY1.jpg",
       quote: "Hasil foto pernikahan kami sangat luar biasa! Tim HIISTORIA.ID sangat profesional dan membantu kami merasa nyaman selama sesi pemotretan. Mereka berhasil menangkap momen-momen spesial dengan sangat indah.",
       rating: 5
     },
     {
       id: 2,
-      name: "Maya & Indra",
+      name: "Nazira & Rahmad",
       role: "Prewedding Client",
-      image: "https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=1974",
+      image: "/lovable-uploads/Prewed/PrewedNR1.jpg",
       quote: "Kami sangat puas dengan hasil foto prewedding dari HIISTORIA.ID. Fotografer sangat kreatif dalam mengarahkan pose dan menciptakan konsep yang sesuai dengan kepribadian kami. Hasilnya benar-benar melebihi ekspektasi!",
       rating: 5
     },
     {
       id: 3,
-      name: "Rina & Farhan",
+      name: "Mardian & Lisa",
       role: "Engagement Client",
-      image: "https://images.unsplash.com/photo-1533636721434-0e2d61030955?q=80&w=2070",
-      quote: "Berkat HIISTORIA.ID, momen engagement kami terabadikan dengan sangat indah. Tim fotografer sangat ramah dan profesional. Kami mendapatkan banyak pilihan foto yang bagus dan albumnya sangat berkualitas.",
+      image: "/lovable-uploads/Engegements/EngegementsML3.jpg",
+      quote: "Kami sangat puas dengan hasil foto prewedding dari HIISTORIA.ID. Fotografer sangat kreatif dalam mengarahkan pose dan menciptakan konsep yang sesuai dengan kepribadian kami. Hasilnya benar-benar melebihi ekspektasi!",
       rating: 4
     }
   ];

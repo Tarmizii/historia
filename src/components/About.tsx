@@ -27,12 +27,13 @@ const About = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center fade-in-section">
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1568992124313-3893e25e0311?q=80&w=1974" alt="Behind the scenes photoshoot" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-2/3 aspect-video rounded-lg overflow-hidden border-4 border-hiistoria-black shadow-xl">
-              <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070" alt="Professional photography" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+          <div className="relative flex justify-center">
+            <div className="aspect-[4/5] rounded-lg overflow-hidden max-w-[650px] max-h-[350px] w-full">
+                  <video 
+                  src="/lovable-uploads/videobehind.mp4" 
+                  className="w-full h-full object-cover rounded-lg" 
+                  controls 
+                  />
             </div>
           </div>
 
