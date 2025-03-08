@@ -1,4 +1,3 @@
-
 import { Calendar, FileImage, MapPin, Save, X } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -8,9 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 
 const Services = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [selectedPackage, setSelectedPackage] = useState<typeof packages[0] | null>(null);
   const [formData, setFormData] = useState({
@@ -84,10 +81,7 @@ const Services = () => {
   }];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -176,9 +170,6 @@ const Services = () => {
                 <h3 className="text-2xl font-serif font-bold text-hiistoria-white mb-2 dark:text-white">
                   {pkg.name}
                 </h3>
-                <div className="text-hiistoria-white text-2xl font-bold mb-4 dark:text-white">
-                  {pkg.price}
-                </div>
                 <p className="text-hiistoria-white/70 mb-6 flex-grow dark:text-gray-300">
                   {pkg.description}
                 </p>
@@ -201,8 +192,8 @@ const Services = () => {
       </div>
 
       {selectedPackage && <div className="fixed inset-0 z-50 overflow-auto bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 animate-fade-in">
-          <div className="relative bg-[#1E1E1E] dark:bg-gray-800 border border-gray-500/30 rounded-lg w-full max-w-3xl overflow-hidden">
-            <button onClick={closeModal} className="absolute top-4 right-4 z-10 bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all">
+          <div className="relative bg-[#1E1E1E] dark:bg-gray-800 border border-gray-500/30 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <button onClick={closeModal} className="sticky top-4 right-4 z-10 float-right bg-hiistoria-black/60 text-hiistoria-white rounded-full p-2 hover:bg-hiistoria-gold/40 transition-all">
               <X className="w-6 h-6" />
             </button>
             
