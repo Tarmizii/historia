@@ -1,3 +1,4 @@
+
 import { Calendar, FileImage, MapPin, Save, X } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -213,6 +214,9 @@ const Services = () => {
                 <h2 className="text-3xl font-serif font-bold text-hiistoria-white mb-2 dark:text-white">
                   Form Pemesanan
                 </h2>
+                <div className="text-hiistoria-white text-2xl font-bold mb-4 dark:text-white">
+                  {selectedPackage.price}
+                </div>
                 <p className="text-hiistoria-white/70 dark:text-gray-300">
                   Silahkan isi formulir di bawah untuk memesan paket {selectedPackage.name}
                 </p>
