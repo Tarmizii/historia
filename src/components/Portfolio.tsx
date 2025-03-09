@@ -124,47 +124,58 @@ const Portfolio = () => {
     },
     {
       id: 7,
-      image: "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
-      client: "Laras & Bayu",
+      image: "/lovable-uploads/wedding/WeddingNM1.jpg",
+      client: "Nanda & Medi",
       event: "Wedding Day",
       category: "wedding",
-      location: "Yogyakarta",
-      date: "11 Oktober 2023",
+      location: "Panton Labu, Aceh, Indonesia",
+      date: "16 Maret 2024",
       galleryImages: [
-        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
-        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134",
-        "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974",
-        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070"
+        "/lovable-uploads/wedding/WeddingNM1.jpg",
+        "/lovable-uploads/wedding/WeddingNM2.jpg",
+        "/lovable-uploads/wedding/WeddingNM4.jpg",
+        "/lovable-uploads/wedding/WeddingNM3.jpg",
+        "/lovable-uploads/wedding/WeddingNM7.jpg",
+        "/lovable-uploads/wedding/WeddingNM6.jpg",
+        "/lovable-uploads/wedding/WeddingNM5.jpg",
+        "/lovable-uploads/wedding/WeddingNM8.jpg",
+        "/lovable-uploads/wedding/WeddingNM9.jpg",
       ]
     },
     {
       id: 8,
-      image: "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
-      client: "Putri & Joko",
+      image: "/lovable-uploads/Prewed/PrewedML1.jpg",
+      client: "Mardian & Lisa",
       event: "Prewedding",
       category: "prewedding",
-      location: "Solo",
-      date: "25 November 2023",
+      location: "Takengon, Aceh, indonesia",
+      date: "18 Februari 2024",
       galleryImages: [
-        "https://images.unsplash.com/photo-1591604129939-f1efa4d2cf9b?q=80&w=1925",
-        "https://images.unsplash.com/photo-1606216794074-735e91efe6c2?q=80&w=2070",
-        "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?q=80&w=1972",
-        "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070"
+        "/lovable-uploads/Prewed/PrewedML1.jpg",
+        "/lovable-uploads/Prewed/PrewedML2.jpg",
+        "/lovable-uploads/Prewed/PrewedML3.jpg",
+        "/lovable-uploads/Prewed/PrewedML4.jpg",
+        "/lovable-uploads/Prewed/PrewedML5.jpg",
+        "/lovable-uploads/Prewed/PrewedML6.jpg",
+        "/lovable-uploads/Prewed/PrewedML7.jpg"
       ]
     },
     {
       id: 9,
-      image: "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070",
-      client: "Ratna & Doni",
+      image: "/lovable-uploads/Engegements/EngegementsMR1.jpg",
+      client: "Mulia & Rahmat",
       event: "Engagement",
       category: "engagement",
-      location: "Malang",
-      date: "8 Desember 2023",
+      location: "Panton labu, Aceh, Indonesia",
+      date: "15 Maret 2023",
       galleryImages: [
-        "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2070",
-        "https://images.unsplash.com/photo-1594106345865-e7d16b880857?q=80&w=2070",
-        "https://images.unsplash.com/photo-1549417229-7686ac5595fd?q=80&w=2134",
-        "https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1974"
+        "/lovable-uploads/Engegements/EngegementsMR1.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR2.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR3.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR4.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR5.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR6.jpg",
+        "/lovable-uploads/Engegements/EngegementsMR7.jpg"
       ]
     }
   ];
