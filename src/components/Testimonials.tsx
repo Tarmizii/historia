@@ -37,7 +37,7 @@ const Testimonials = () => {
       name: "Mardian & Lisa",
       role: "Engagement Client",
       image: "/lovable-uploads/Engegements/EngegementsML3.jpg",
-      quote: "Kami sangat puas dengan hasil foto prewedding dari HIISTORIA.ID. Fotografer sangat kreatif dalam mengarahkan pose dan menciptakan konsep yang sesuai dengan kepribadian kami. Hasilnya benar-benar melebihi ekspektasi!",
+      quote: "Berkat HIISTORIA.ID, momen engagement kami terabadikan dengan sangat indah. Tim fotografer sangat ramah dan profesional. Kami mendapatkan banyak pilihan foto yang bagus dan albumnya sangat berkualitas.",
       rating: 4
     }
   ];

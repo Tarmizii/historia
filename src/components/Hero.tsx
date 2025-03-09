@@ -41,15 +41,13 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <div className="flex flex-col items-center">
-          <p className="text-gray-400/70 text-sm mb-2">Scroll Down</p>
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-pulse-soft mt-2"></div>
-          </div>
-        </div>
-      </div>
+<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce flex flex-col items-center">
+  <p className="text-gray-400/70 text-sm mb-2 text-center">Scroll Down</p>
+  <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center items-start">
+    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-pulse mt-2"></div>
+  </div>
+</div>
+
     </section>
   );
 };

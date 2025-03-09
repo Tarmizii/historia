@@ -30,13 +30,12 @@ const About = () => {
           <div className="relative flex justify-center">
             <div className="aspect-[4/5] rounded-lg overflow-hidden max-w-[650px] max-h-[350px] w-full">
                   <video 
-                  src="/lovable-uploads/videobehind.mp4" 
-                  className="w-full h-full object-cover rounded-lg" 
-                  controls 
+                    src="/lovable-uploads/videobehind.mp4" 
+                    className="w-full h-full object-cover rounded-lg" 
+                    controls 
                   />
             </div>
           </div>
-
           <div className="fade-in-section">
             <h3 className="text-3xl font-serif font-bold text-hiistoria-white mb-6">
               Pengalaman & Keahlian
